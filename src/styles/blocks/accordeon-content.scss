@@ -1,0 +1,46 @@
+.accordeon-content {
+    display: flex;
+    height: 0;
+    overflow: hidden;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.accordeon-content--color--positoin--overflow .accordeon-content {
+    height: 100%;
+    overflow: visible;
+}
+
+
+.accordeon-content__desc {
+    font-size: rem(14px);
+    color: $white;
+
+    @include tablets {
+        text-align: center;
+    }
+}
+
+.accordeon-content__occ {
+    font-weight: bold;
+    margin-bottom: rem(15px);
+}
+
+.accordeon-content__text {
+    font-weight: 300;
+    line-height: 24.01px;
+}
+
+
+.accordeon-content__avatar {
+    width: 30%;
+    margin-right: rem(34px);
+
+
+    @include tablets {
+        margin-right: 0;
+    }
+}

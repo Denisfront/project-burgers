@@ -1,0 +1,14 @@
+.social-icon {
+    width: rem(23px);
+    height: rem(20px);
+    fill: $white;
+    opacity: .3;
+    margin-right: rem(15px);
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.social-icon--margin {
+    margin-right: 0;
+}

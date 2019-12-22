@@ -1,0 +1,59 @@
+.btn {
+    font-weight: 500;
+    font-size: rem(13px);
+    color: $white;
+    text-transform: uppercase;
+    border-radius: rem(5px);
+    padding: rem(10px) rem(16px);
+    background-color: $red;
+    text-decoration: none;
+    outline: none;
+
+    &--color--black {
+        background-color: #2f3234;
+    }
+
+
+    &:hover {
+        background-color: $red-hover;
+    }
+}
+
+.btn--color--black {
+    &:hover {
+        background-color: #1f2122;
+    }
+}
+
+.btn--form {
+    border: none;
+    cursor: pointer;
+    margin-right: rem(20px);
+    outline: none;
+}
+
+.btn__reset {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: $white;
+    font-size: rem(14px);
+    font-weight: 300;
+    outline: none;
+}
+
+.btn__tablets {
+    @include phones {
+        display: none;
+    }
+}
+.btn__phones {
+    display: none;
+
+    @include phones {
+        display: block;
+    }
+
+}
+
+

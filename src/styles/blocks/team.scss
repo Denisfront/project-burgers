@@ -1,0 +1,13 @@
+.team {
+    width: rem(350px);
+    margin: 0 auto;
+}
+
+.team__title {
+    margin: rem(93px) 0 rem(44px) 0;
+
+    @include tablets {
+        margin: rem(200px) 0 rem(44px) 0;
+        text-align: center;
+    }
+}

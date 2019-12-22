@@ -1,0 +1,43 @@
+.desc-coloum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $black;
+
+    @include phones {
+        flex-direction: row;
+    }
+}
+
+.desc-coloun__row {
+    text-align: center;
+
+    @include phones {
+        text-align: inherit;
+    }
+}
+
+.desc-coloum__svg {
+    @include phones {
+        margin-right: rem(40px);
+    }
+}
+.desc-coloum__subtitle {
+    font-family: "Lifehack";
+    font-weight: 400;
+    font-size: rem(24px);
+    font-weight: 500;
+    line-height: 28.14px;
+    letter-spacing: -0.6px;
+}
+
+.desc-coloum__text {
+    font-size: rem(14px);
+    font-weight: 300;
+    line-height: 24.02px;
+    opacity: .8;
+
+    @include phones {
+        font-size: rem(15px);
+    }
+}

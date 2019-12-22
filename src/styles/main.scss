@@ -1,0 +1,30 @@
+//color
+$white: #fff;
+$black: #141414;
+$orange: #f9b43b;
+$red: #e45028;
+$gray:  #2f3234;
+$red-hover: #c1401e;
+
+@function rem($px) {
+    @return $px / 16px + 0rem;
+}
+
+@mixin tablets {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin phones {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+
+// setups
+@import './_mics/*.scss';
+
+// blocks
+@import './blocks/*.scss';
