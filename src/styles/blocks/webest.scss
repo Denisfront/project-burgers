@@ -1,0 +1,26 @@
+.webest {
+    background-image: url(../img/bg/bg-webest.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.websest__list {
+    display: flex;
+    justify-content: space-between;
+
+    @include phones {
+        display: block;
+    }
+}
+
+.title__webest {
+    margin-bottom: rem(40px);
+}
+
+.webest__row {
+    max-width: rem(284px);
+
+    @include phones {
+        max-width: 100%;
+    }
+}

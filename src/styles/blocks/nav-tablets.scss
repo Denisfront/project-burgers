@@ -1,0 +1,57 @@
+.nav-tablets {
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #2f3234;
+    opacity: 0.99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+    z-index: 1;
+}
+
+.body_closed {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.nav-tablets__item {
+    margin-bottom: 8%;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.nav-tablets__link {
+    text-decoration: none;
+    color: $white;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        width: rem(7px);
+        height: rem(7px);
+        border-radius: 50%;
+        background: $white;
+        position: absolute;
+        top: -100%;
+        right: 46%;
+
+        @include phones {
+            top: -60%;
+        }
+    }
+    &--first {
+        &:before {
+            display: none;
+        }
+    }
+}

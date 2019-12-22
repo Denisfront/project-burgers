@@ -1,0 +1,14 @@
+.composition-table {
+    color: $black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.composition-table__td-icon {
+    width: rem(44px);
+    height: rem(43px);
+}
+
+.composition-table__td {
+    padding: 0 rem(30px) 0 rem(25px);
+}

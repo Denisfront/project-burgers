@@ -1,0 +1,29 @@
+.form-information {
+    width: 50%;
+    margin-right: rem(20px);
+
+    @include tablets {
+        margin-right: 0;
+        width: 100%;
+        padding: 0 17%;
+    }
+
+    @include phones {
+        width: 100%;
+        padding: 0;
+    }
+
+
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.form-information__the-choice {
+    @include phones {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+}

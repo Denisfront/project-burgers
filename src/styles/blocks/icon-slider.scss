@@ -1,0 +1,39 @@
+.icon-slider {
+    width: rem(60px);
+    height: rem(60px);
+    opacity: 0.5;
+    text-align: center;
+    position: relative;
+
+    &:after {
+        content: '1200';
+        display: inline-block;
+        position: absolute;
+        top: 63%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: rem(20px);
+        font-family: 'Gagalin';
+        color: $white;
+    }
+
+    @include tablets {
+        position: absolute;
+        top: 0;
+        right: 18%;
+    }
+
+    @include phones {
+        position: absolute;
+        top: 0;
+        right: 0%;
+    }
+}
+
+.icon-slider__icon {
+    font-family: 'Gagalin';
+    font-size: rem(14px);
+    font-weight: 400;
+    color: $white;
+}
+

@@ -1,0 +1,10 @@
+
+.button-prev {
+    position: absolute;
+    top: 49%;
+    left: -4%;
+
+    @include tablets {
+       left: 0;
+    }
+}
