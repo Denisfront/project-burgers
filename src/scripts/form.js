@@ -125,3 +125,8 @@ function validateField(field) {
     field.nextElementSibling.textContent = field.validationMessage;
     return field.checkValidity();
 }
+
+$(function(){
+    //2. Получить элемент, к которому необходимо добавить маску
+    $("#phone").mask("8(999) 999-9999"); // Маска для input с номером телефона
+  });

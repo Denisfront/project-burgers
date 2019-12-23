@@ -29,6 +29,7 @@
         position: absolute;
         top: 40%;
         left: rem(0px);
+        transition: .5s;
     }
 }
 
@@ -36,18 +37,20 @@
     color: $orange;
 
     &:after {
-        content: '';
-        display: block;
-        border: 6px solid transparent;
-        border-bottom-color:$orange ;
-        border-top-width: 0;
-        border-left-width: 5px;
-        border-right-width: 5px;
-        width: rem(0px);
-        height: rem(0px);
-        position: absolute;
-        top: 40%;
-        left: rem(0px);
+        // content: '';
+        // display: block;
+        // border: 6px solid transparent;
+        // border-bottom-color:$orange ;
+        // border-top-width: 0;
+        // border-left-width: 5px;
+        // border-right-width: 5px;
+        // width: rem(0px);
+        // height: rem(0px);
+        // position: absolute;
+        // top: 40%;
+        // left: rem(0px);
+        transform: rotate(180deg);
+        transition: .5s;
     }
 }
 

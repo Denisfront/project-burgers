@@ -2,6 +2,7 @@
     display: flex;
     height: 0;
     overflow: hidden;
+    transition: .5s;
 
     @include tablets {
         flex-direction: column;
@@ -10,8 +11,7 @@
 }
 
 .accordeon-content--color--positoin--overflow .accordeon-content {
-    height: 100%;
-    overflow: visible;
+    height: rem(100px);
 }
 
 

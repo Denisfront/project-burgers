@@ -3,13 +3,6 @@ const display = $('.maincontent');
 let inScroll = false;
 const md = new MobileDetect(window.navigator.userAgent);
 const isMobile = md.mobile();
-const changeFixedMenuActiveItem = () => {
-    $('.column__item')
-        .eq(sectionEq)
-        .addClass('column__dot--active')
-        .siblings()
-        .removeClass('column__dot--active');
-}
 
 const performTransition = sectionEq => {
     if (inScroll) return;
@@ -33,7 +26,11 @@ const performTransition = sectionEq => {
     
     setTimeout(() => {
         inScroll = false;
-        changeFixedMenuActiveItem();
+        $('.column__item')
+        .eq(sectionEq)
+        .addClass('column__dot--active')
+        .siblings()
+        .removeClass('column__dot--active');
     }, transitionIsOver + mouseInertionIsOver);
 };
 
