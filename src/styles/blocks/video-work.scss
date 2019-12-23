@@ -4,4 +4,11 @@
     background-size: cover;
     background-position: center center;
     position: relative;
+    text-align: center;
+}
+
+.video-work__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

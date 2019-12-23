@@ -85,6 +85,11 @@ task('img', () => { // таск для подключения картинок
         .pipe(dest('dist/img'));
 });
 
+task('video', () => { // таск для подключения картинок 
+    return src('src/video/**')
+        .pipe(dest('dist/video'));
+});
+
 task('fonts', () => { // таск для подключения шрифтов
     return src('src/fonts/**', {})
         .pipe(dest('dist/fonts'));
@@ -130,11 +135,12 @@ task('watch', () => {
     watch('./src/icons-svg/*.svg', series('icons')); // слежка за файлами svg иконок
     watch('./src/img/**', series('img')); // слежка за папкой img
     watch('./src/fonts/**', series('fonts')); // слежка за папкой img
+    watch('./src/video/**', series('video')); // слежка за папкой video
 });
 
 task('default',
     series('clean',
-        parallel('copy:html', 'styles', 'scripts', 'img', 'fonts', 'icons'),
+        parallel('copy:html', 'styles', 'scripts', 'img', 'fonts', 'icons', 'video',),
         parallel('watch', 'server')
     )
 ); // дефолтный такс для запуска Gulp

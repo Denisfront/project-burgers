@@ -1,31 +1,40 @@
 const sections = $('.section');
 const display = $('.maincontent');
 let inScroll = false;
+const md = new MobileDetect(window.navigator.userAgent);
+const isMobile = md.mobile();
+const changeFixedMenuActiveItem = () => {
+    $('.column__item')
+        .eq(sectionEq)
+        .addClass('column__dot--active')
+        .siblings()
+        .removeClass('column__dot--active');
+}
 
 const performTransition = sectionEq => {
-    if (inScroll === false) {
-        inScroll = true;
-        const position = sectionEq * -100;
-        sections
-            .eq(sectionEq)
-            .addClass('active')
-            .siblings()
-            .removeClass('active');
+    if (inScroll) return;
 
-        display.css({
-            transform: `translateY(${position}%)`
-        });
+    inScroll = true;
+    const transitionIsOver = 1000;
+    const mouseInertionIsOver = 300;
+    const position = sectionEq * -100;
+    if (isNaN(position))
+        console.error('передли неверное значение в performTransition');
 
-        setTimeout(() => {
-            inScroll = false;
+    sections
+        .eq(sectionEq)
+        .addClass('active')
+        .siblings()
+        .removeClass('active');
 
-            $('.column__item')
-                .eq(sectionEq)
-                .addClass('column__dot--active')
-                .siblings()
-                .removeClass('column__dot--active');
-        }, 1300);
-    }
+    display.css({
+        transform: `translateY(${position}%)`
+    });
+    
+    setTimeout(() => {
+        inScroll = false;
+        changeFixedMenuActiveItem();
+    }, transitionIsOver + mouseInertionIsOver);
 };
 
 const scrollToSection = direction => {
@@ -56,18 +65,16 @@ $(window).on('wheel', e => {
 
 $(window).on('keydown', e => {
     const tagName = e.target.tagName.toLowerCase();
-
-    if (tagName != 'input' && tagName != 'textarea') {
-        switch (e.keyCode) {
-            case 38:
-                scrollToSection('prev');
-                break;
-            case 40:
-                scrollToSection('next');
-                break;
-        }
-    };
-
+    const usersTypingInInpust = tagName === 'input' || tagName === 'textarea'
+    if (usersTypingInInpust) return;
+    switch (e.keyCode) {
+        case 38:
+            scrollToSection('prev');
+            break;
+        case 40:
+            scrollToSection('next');
+            break;
+    }
 });
 
 $('[data-scroll-to]').on('click', e => {
@@ -78,16 +85,17 @@ $('[data-scroll-to]').on('click', e => {
     performTransition(target);
 });
 
-$("body").swipe({
-    swipe: function 
-    (event,
-    direction, 
-    distance, 
-    duration,
-    fingerCount, 
-    fingerData) {
-        const scrollDirection = direction === 'up' ? 'next' : 'prev';
+if (isMobile) {
+    $("body").swipe({
+        swipe: function (event,
+            direction,
+            distance,
+            duration,
+            fingerCount,
+            fingerData) {
+            const scrollDirection = direction === 'up' ? 'next' : 'prev';
 
-        scrollToSection(scrollDirection);
-    }
-});
+            scrollToSection(scrollDirection);
+        }
+    });
+}

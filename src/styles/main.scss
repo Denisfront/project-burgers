@@ -5,6 +5,7 @@ $orange: #f9b43b;
 $red: #e45028;
 $gray:  #2f3234;
 $red-hover: #c1401e;
+$opacitygray:  #626262;
 
 @function rem($px) {
     @return $px / 16px + 0rem;
