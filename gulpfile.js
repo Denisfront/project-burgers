@@ -36,17 +36,12 @@ task('clean', () => { // таск для очистки папки dist
 
 });
 
-task('delete:dist', function () { // удалеине папки css при загрузки методом 'dev'
-    return (gulpif(env === 'prod', del([
-        'dist',
-    ])));
-});
-
 task('copy:html', () => { // копирование html в папку dist
-    return src('src/*.html').pipe(gulpif(env === 'dev', dest('dist')))
+    return src('src/*.html')
+        .pipe(dest('dist'))
         .pipe(reload({
             stream: true
-        }))
+        }));
 });
 
 
