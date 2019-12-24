@@ -36,16 +36,6 @@ task('clean', () => { // таск для очистки папки dist
 
 });
 
-// task('delete:css', function () { // удалеине папок css при загрузки методом 'dev'
-//     return (gulpif(env === 'dev', del([
-//         'css',
-//         'fonts',
-//         'icons-svg',
-//         'img',
-//         'js'
-//     ])));
-// });
-
 task('delete:dist', function () { // удалеине папки css при загрузки методом 'dev'
     return (gulpif(env === 'prod', del([
         'dist',
@@ -53,9 +43,10 @@ task('delete:dist', function () { // удалеине папки css при за
 });
 
 task('copy:html', () => { // копирование html в папку dist
-    return src('src/*.html').pipe(gulpif(env === 'dev', dest('dist'))).pipe(gulpif(env === 'prod', dest('../Gulp-test'))).pipe(reload({
-        stream: true
-    }))
+    return src('src/*.html').pipe(gulpif(env === 'dev', dest('dist')))
+        .pipe(reload({
+            stream: true
+        }))
 });
 
 
