@@ -7,6 +7,7 @@ const {
     parallel
 } = require('gulp')
 
+
 const rm = require('gulp-rm');
 const sass = require('gulp-sass'); // компиляция sass в css
 sass.compiler = require('node-sass'); // компиляция sass в css
@@ -24,6 +25,7 @@ const uglify = require('gulp-uglify'); // Минификация JavaScript
 const svgo = require('gulp-svgo'); // Генерация SVG-спрайта
 const svgSprite = require('gulp-svg-sprite'); // Генерация SVG-спрайта
 const gulpif = require('gulp-if'); // стадии проекта Dev vs Prod
+const del = require('del'); // удаляет папки и файлы
 const env = process.env.NODE_ENV;
 
 task('clean', () => { // таск для очистки папки dist
@@ -31,13 +33,32 @@ task('clean', () => { // таск для очистки папки dist
             read: false
         })
         .pipe(rm())
+
+});
+
+// task('delete:css', function () { // удалеине папок css при загрузки методом 'dev'
+//     return (gulpif(env === 'dev', del([
+//         'css',
+//         'fonts',
+//         'icons-svg',
+//         'img',
+//         'js'
+//     ])));
+// });
+
+task('delete:dist', function () { // удалеине папки css при загрузки методом 'dev'
+    return (gulpif(env === 'prod', del([
+        'dist',
+    ])));
 });
 
 task('copy:html', () => { // копирование html в папку dist
-    return src('src/*.html').pipe(dest('dist')).pipe(reload({
+    return src('src/*.html').pipe(gulpif(env === 'dev', dest('dist'))).pipe(gulpif(env === 'prod', dest('../Gulp-test'))).pipe(reload({
         stream: true
     }))
 });
+
+
 const stylelibs = [
     'node_modules/normalize.css/normalize.css',
     'src/styles/main.scss'
@@ -74,7 +95,7 @@ task('scripts', () => { // таск для JavaScript
         }))
         .pipe(gulpif(env === 'prod', uglify())) // Минификация JavaScript
         .pipe(gulpif(env === 'dev', sourcemaps.write()))
-        .pipe(dest('dist'))
+        .pipe(dest('dist')) // сохранение готовых файлов в папку dist
         .pipe(reload({
             stream: true
         }));
@@ -82,10 +103,10 @@ task('scripts', () => { // таск для JavaScript
 
 task('img', () => { // таск для подключения картинок 
     return src('src/img/**')
-        .pipe(dest('dist/img'));
+        .pipe(dest('dist/img'))
 });
 
-task('video', () => { // таск для подключения картинок 
+task('video', () => { // таск для подключения видео 
     return src('src/video/**')
         .pipe(dest('dist/video'));
 });
@@ -140,7 +161,7 @@ task('watch', () => {
 
 task('default',
     series('clean',
-        parallel('copy:html', 'styles', 'scripts', 'img', 'fonts', 'icons', 'video',),
+        parallel('copy:html', 'styles', 'scripts', 'img', 'fonts', 'icons', 'video', ),
         parallel('watch', 'server')
     )
 ); // дефолтный такс для запуска Gulp

@@ -23,15 +23,25 @@ const performTransition = sectionEq => {
     display.css({
         transform: `translateY(${position}%)`
     });
-    
+
     setTimeout(() => {
         inScroll = false;
         $('.column__item')
-        .eq(sectionEq)
-        .addClass('column__dot--active')
-        .siblings()
-        .removeClass('column__dot--active');
+            .eq(sectionEq)
+            .addClass('column__dot--active')
+            .siblings()
+            .removeClass('column__dot--active');
     }, transitionIsOver + mouseInertionIsOver);
+
+    if (sectionEq > 0) {
+        $('.header').css({
+            display: 'none'
+        })
+    } else {
+        $('.header').css({
+            display: 'block'
+        })
+    }
 };
 
 const scrollToSection = direction => {

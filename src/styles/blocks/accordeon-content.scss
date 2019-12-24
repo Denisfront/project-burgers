@@ -12,6 +12,10 @@
 
 .accordeon-content--color--positoin--overflow .accordeon-content {
     height: rem(100px);
+
+    @include tablets {
+        height: rem(200px);
+    }
 }
 
 

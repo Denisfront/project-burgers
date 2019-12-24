@@ -62,17 +62,25 @@
 }
 
 .menu-slider__right-title {
-    line-height: 63.93px;
-    margin-bottom: 48px;
+    line-height: rem(63.93px);
+    margin-bottom: rem(48px);
+
+    @include phones {
+        margin-bottom:0;
+    }
 }
 
 .menu-slider__right-text {
-    font-size: 14px;
+    font-size: rem(14px);
     font-weight: 300;
     color: $white;
-    line-height: 23.97px;
+    line-height: rem(23.97px);
     opacity: 0.8;
     margin-bottom: 5%;
+
+    @include phones {
+        margin-bottom:0;
+    }
 }
 
 .menu-slider__right-item {
