@@ -44,6 +44,7 @@ const performTransition = sectionEq => {
     }
 };
 
+
 const scrollToSection = direction => {
     const activeSection = sections.filter('.active');
     const nextSection = activeSection.next();

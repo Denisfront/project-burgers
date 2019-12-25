@@ -2,6 +2,7 @@
 .button-prev {
     position: absolute;
     top: 49%;
+    z-index: 10;
     left: -4%;
 
     @include tablets {

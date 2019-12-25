@@ -1,0 +1,35 @@
+#p_prldr{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+    // background: $orange;
+    background-image: linear-gradient(to top, #f9b43b 0%, #eb8c38 48%, #f9b43b 74%, #f9b43b 100%);
+    z-index: 30;
+    font-family: 'Gagalin';
+}
+    
+     
+    .contpre small{font-size:25px;}
+     
+    .contpre{
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    left: 50%;top: 48%;
+    margin-left:-125px;
+    margin-top:-75px;
+    color: $red;
+    font-size:40px;
+    letter-spacing:-2px;
+    text-align:center;
+    line-height:35px;}
+     
+    #p_prldr .svg_anm {
+    position: absolute;
+    width: rem(41px);
+    height: rem(41px);
+    background: url(img/icons/ball-triangle.svg) center center no-repeat;
+    background-size: rem(41px);    
+    margin: -16px 0 0 -16px;}
